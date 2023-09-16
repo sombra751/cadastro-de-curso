@@ -1,0 +1,19 @@
+<!-- <app-body
+[screenWidth]="screenWidth"
+[collapsed]="isSideNavCollapsed"
+>
+</app-body> -->
+
+
+<!-- <app-sidebar (onToggleSideNav)="onToggleSideNav($event)"></app-sidebar>
+<app-header class="header"></app-header>
+<div class="body" [ngClass]="applyPadding ? 'router-outlet-padding' : ''">
+    <router-outlet></router-outlet>
+</div> -->
+<!-- <app-footer class="footer"></app-footer>  -->
+
+<app-sidebar class="sidebar" (onToggleSideNav)="onToggleSideNav($event)"></app-sidebar>
+<app-body class="body1"
+[collapsed]="isSideNavCollapsed"
+[screenWidth]="screenWidth"
+></app-body>

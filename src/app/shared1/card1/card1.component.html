@@ -1,0 +1,16 @@
+<div class="card {{ cardModifier }}">
+    <div class="card__head">
+        <div class="card__icon icon-list {{ cardIconModifier }}">
+            <i class="{{ cardIconClass }}"></i>
+        </div>
+        <div class="card__title">
+            <p>{{ cardTitle }}</p>
+        </div>
+    </div>
+    <div class="card__body">
+        <ng-content select=".cardBody" ></ng-content>
+    </div>
+    <div class="{{ cardFooterModifier }} text__right">
+        <ng-content select=".cardFooter"></ng-content>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="background">
+    <img id="container-image" alt="">
+
+    <div class="auth-modal">
+        <div class="auth-content">
+            <div class="card-header">
+                <h4 class="title">Login</h4>
+                <ul class="icons-socials">
+                    <li><i class="bi bi-github bi-large"></i></li>
+                    <li><i class="bi bi-linkedin"></i></li>
+                </ul>
+            </div>
+            <form action="" [formGroup]="login" (ngSubmit)="logindata(login)" id="login">
+                <div class="col-md-12">
+                    <mat-form-field>
+                        <mat-label>Usúario</mat-label>
+                        <input matInput formControlName="username" id="username" type="text">
+                        <mat-error *ngIf="hasError('username') && !hasError('required')">
+                            O nome do usúario é obrigatorio!
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-12">
+                    <mat-form-field>
+                        <mat-label>Senha</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" id="password">
+                        <button type="button" mat-icon-button matSuffix (click)="hide = !hide"
+                            [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <i class="{{hide ? 'bi bi-eye-fill' : 'bi bi-eye-slash'}}"></i>
+                        </button>
+                        <mat-error *ngIf="hasError('password') && !hasError('required')">
+                            A senha do usúario é obrigatorio!
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </form>
+        </div>
+        <div class=" actions">
+            <button type="submit" form="login" class="button">Entrar</button>
+        </div>
+    </div>
+
+</div>

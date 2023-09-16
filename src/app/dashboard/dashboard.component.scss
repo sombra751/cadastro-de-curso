@@ -1,0 +1,292 @@
+i {
+    padding: 0 10px;
+}
+
+p {
+    padding: 0;
+    margin: 0;
+    color: #999;
+}
+
+.success {
+    color: green;
+
+}
+
+.danger {
+    color: red;
+}
+
+.info {
+    color: #26c6da;
+}
+
+.normal {
+    color: gray;
+}
+
+.row {
+    display: -webkit-box;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.cards {
+
+    padding: 0 15px;
+    max-width: 33.333%;
+
+}
+
+.card {
+    margin-top: 30px;
+    background-color: white;
+    border: 1px solid transparent;
+    border-radius: 0.8rem;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .14);
+
+    .card-body {
+            padding: 0.93rem 20px;
+            position: relative;
+        
+            .card-actions {
+                position: absolute;
+                z-index: 1;
+                top: -50px;
+                width: calc(100% - 30px);
+                left: 17px;
+                right: 17px;
+                text-align: center;
+            }
+        }
+
+    }
+
+       
+.card-title {
+    display: flex;
+    align-items: center;
+    margin: 0 15px;
+    justify-content: space-between;
+
+}
+
+.card-header {
+    border-radius: 0.3rem;
+    padding: 15px;
+    margin-top: -20px;
+    margin-right: 20px;
+    box-shadow: 0, 4px, 20px (0, 0, 0, rgba(0, 0, 0, .14));
+    text-align: center;
+
+}
+
+
+.table {
+    width: 100%;
+
+    tr {
+        border-bottom: 0.2px solid rgba(0, 0, 0, 0.13);
+    }
+
+    td {
+        padding: 12px 8px;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+}
+
+
+.map-mundial {
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .14);
+
+    .card-title {
+        justify-content: start;
+
+        .icon-mundo {
+            background-color: rgb(110, 206, 235);
+        }
+
+        img {
+            width: 30px;
+        }
+
+        p {
+            margin-top: 15px;
+            font-size: 15px;
+            font-weight: bolder;
+            text-transform: uppercase;
+        }
+
+    }
+
+    .list-paises {
+
+        .img-bandeira img {
+            width: 1.5rem;
+        }
+    }
+
+
+    .world-map {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url(../../assets/images1/computer.jpg);
+        background-position: bottom;
+        background-size: cover;
+        background-repeat: no-repeat;
+        img {
+            width: 65%;
+            padding: 20px;
+        }
+    }
+}
+
+.card-icon {
+    .icon-sofa {
+        background: linear-gradient(60deg, #26c6da, #00acc1);
+
+        img {
+            width: 50px;
+        }
+
+    }
+
+    .icon-grafico {
+        background: linear-gradient(60deg, #ec407a, #d81b60);
+
+        img {
+            width: 50px;
+        }
+
+    }
+
+    .icon-loja {
+        background: linear-gradient(60deg, #66bb6a, #43a047);
+
+        img {
+            width: 50px;
+        }
+    }
+
+    .icon-redes {
+        background: linear-gradient(60deg, #ffa726, #fb8c00);
+
+        img {
+            width: 50px;
+        }
+    }
+}
+
+
+
+
+
+.card-status {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+
+
+
+    .card-name {
+        color: #999;
+        font-size: 13px;
+    }
+
+    .card-stats {
+        font-size: 23px;
+        font-weight: 100;
+        color: black;
+        font-weight: 600;
+    }
+
+}
+
+.card-footer {
+    display: flex;
+    padding: 10px 0 0;
+    margin: 0 15px 10px;
+    border-top: 1px solid #eee;
+    background-color: transparent;
+    margin-top: 20px;
+
+    p,
+    i {
+        font-size: 12px;
+    }
+}
+
+
+
+
+.card-sale {
+
+    h4,
+    p {
+        text-align: center;
+    }
+
+    .card-description {
+        color: #999;
+        font-size: 15px;
+        font-weight: 300;
+    }
+
+    .card-text {
+        height: 200px;
+    }
+}
+
+.card-image {
+    position: relative;
+    padding: 10px;
+    margin-top: -30px;
+    transition: transform 0.5s ease;
+    
+    z-index: 3 !important;
+
+    &:hover {
+
+        transform: translateY(-50px);
+    }
+
+    img {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .14);
+        filter: brightness( 70% ) contrast( 110% ) saturate( 110% ) blur( 0px ) hue-rotate( 0deg );
+    }
+
+}
+
+.card-value-location {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .card-location {
+        display: flex;
+        flex-direction: row;
+
+    }
+}
+
+
+.card-category {
+    display: flex;
+    color: #999;
+}
+
+.spaccing {
+padding:30px 0px;
+}
+
+.title {
+    font-weight: 300;
+    font-size: 1.5625rem;
+    margin: 20px 0 10px;
+}

@@ -1,0 +1,5 @@
+<div class="form-group mb-3 col-md-12" [ngClass]="classeCss">
+    <label [attr.for]="id" class="control-label" id="basic-addon1">{{ label }}</label>
+    <input [type]="type" class="form-control" [id]="id" [readonly]="!!isReadOnly"
+    [(ngModel)]="value"/>
+</div>

@@ -1,0 +1,234 @@
+{
+  "cursos": [
+    {
+      "id": 4,
+      "nome": "java",
+      "descricao": "w",
+      "duracao": 1
+    },
+    {
+      "id": 5,
+      "nome": "Vue",
+      "descricao": "oiii",
+      "duracao": 2
+    },
+    {
+      "id": 6,
+      "nome": "vamo",
+      "descricao": "hhh",
+      "duracao": 2
+    },
+    {
+      "id": 7,
+      "nome": "java123",
+      "descricao": "java é",
+      "duracao": 4
+    }
+  ],
+  "materias": [
+    {
+      "id": 2,
+      "nome": "ssasasw",
+      "curso": [
+        "vamo"
+      ]
+    },
+    {
+      "id": 3,
+      "nome": "ssss",
+      "curso": [
+        null
+      ]
+    },
+    {
+      "id": 4,
+      "nome": "14s",
+      "curso": [
+        null
+      ]
+    },
+    {
+      "id": 5,
+      "nome": "sssss",
+      "cursos": "ssasas"
+    },
+    {
+      "id": 6,
+      "nome": "sqqsq",
+      "cursos": "iniciando curso"
+    },
+    {
+      "id": 12,
+      "nome": "desenvolvendo curso",
+      "cursos": 4
+    },
+    {
+      "id": 13,
+      "nome": "sss",
+      "curso": 3
+    },
+    {
+      "id": 15,
+      "nome": "dede",
+      "curso": 4
+    },
+    {
+      "id": 17,
+      "nome": "evoluindo",
+      "duracao": 2,
+      "curso": "java"
+    },
+    {
+      "id": 18,
+      "nome": "ssss",
+      "curso": "java"
+    },
+    {
+      "id": 19,
+      "nome": "sss",
+      "curso": "java"
+    },
+    {
+      "id": 20,
+      "nome": "teste paulo",
+      "curso": "java12"
+    },
+    {
+      "id": 21,
+      "nome": "victor",
+      "curso": [
+        "Vue",
+        "vamo",
+        "java123"
+      ]
+    },
+    {
+      "id": 22,
+      "nome": "Softvision",
+      "youtubeUrl": "https://www.youtube.com/live/PITv3RFh-MU?si=JOWplNJNpzAT0x4x",
+      "curso": [
+        "Vue"
+      ]
+    }
+  ],
+  "alunos": [
+    {
+      "id": 4,
+      "nome": "sswsw"
+    },
+    {
+      "id": 5,
+      "nome": "sss",
+      "curso": "java"
+    },
+    {
+      "id": 6,
+      "nome": "dwdw",
+      "curso": "java"
+    },
+    {
+      "id": 7,
+      "nome": "ois",
+      "curso": "sql222"
+    },
+    {
+      "id": 8,
+      "nome": "joao",
+      "telefone": "(19)9999-9991",
+      "email": "joao@gmail.com1",
+      "endereco": null,
+      "cidade": "campinas1",
+      "estado": "sao paulo1",
+      "cep": "130544401",
+      "curso": "Vue"
+    },
+    {
+      "id": 9,
+      "nome": "paulo",
+      "telefone": "(19)9999-9991",
+      "email": "joao@gmail.com1",
+      "endereco": null,
+      "cidade": "campinas2",
+      "estado": "sp2",
+      "cep": "1305444023",
+      "curso": "java"
+    },
+    {
+      "id": 10,
+      "nome": "Aparecida",
+      "telefone": "(19)9999-9999",
+      "email": "aparecida@gmail.com",
+      "endereco": {
+        "cep": "13054-440",
+        "numero": "27",
+        "complemento": "",
+        "rua": "Rua João Coutinho de Oliveira",
+        "bairro": "Dic IV (Conjunto Habitacional Lech Walesa)",
+        "cidade": "Campinas",
+        "estado": "SP"
+      },
+      "curso": [
+        "java",
+        "Vue"
+      ]
+    },
+    {
+      "id": 11,
+      "nome": "joao",
+      "telefone": "(19)9999-9999",
+      "email": "joao@gmail.com",
+      "endereco": {
+        "cep": "74953-210",
+        "numero": "27",
+        "complemento": "",
+        "rua": "Rua X 22",
+        "bairro": "American Park",
+        "cidade": "Aparecida de Goiânia",
+        "estado": "GO"
+      },
+      "curso": [
+        "java",
+        "Vue",
+        "vamo",
+        "java123"
+      ]
+    }
+  ],
+  "user": [
+    {
+      "id": "admin",
+      "username": "admin",
+      "password": "123456",
+      "email": "admin@in.com",
+      "role": "admin",
+      "isactive": true
+    }
+  ],
+  "routes": {
+    "/cursos": "cursos",
+    "/materias": "materias"
+  },
+  "teste": [
+    {
+      "name": "joao"
+    },
+    {
+      "name": "joao"
+    },
+    {
+      "name": "joao"
+    },
+    {
+      "name": "joao"
+    },
+    {
+      "name": "joao"
+    },
+    {
+      "name": "joao"
+    },
+    {
+      "name": "maria"
+    }
+  ]
+}

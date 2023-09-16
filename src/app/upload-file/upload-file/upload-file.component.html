@@ -1,0 +1,47 @@
+<div>
+  <div class="mb-3">
+    <label for="customFile" class="form-label" id="customFileLabel"
+      >Selecionar o arquivo</label
+    >
+    <input
+      class="form-control"
+      type="file"
+      id="customFile"
+      (change)="onChange($event)"
+    />
+    <div
+      class="progress"
+      role="progressbar"
+      aria-label="Example with label"
+      aria-valuenow="25"
+      aria-valuemin="0"
+      aria-valuemax="100"
+    >
+      <div
+        class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+        [style.width]="progress + '%'"
+      >
+        {{ progress }}%
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <button
+    type="button"
+    class="btn btn-primary"
+    (click)="onUpload()"
+    [disabled]="!files"
+  >
+    Upload
+  </button>
+</div>
+<div class="download-button">
+  <a type="button" (click)="onDownloadExcel()">
+    <i class="bi bi-file-earmark-pdf-fill"></i>
+  </a>
+  <a type="button" (click)="onDownloadPdf()">
+    <i class="bi bi-file-earmark-excel-fill lg-2"></i>
+  </a>
+</div>

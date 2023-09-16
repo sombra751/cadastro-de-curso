@@ -1,0 +1,66 @@
+p {
+    margin: 0;
+    padding: 0;
+}
+.row {
+    display: -webkit-box;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.cards {
+
+    padding: 0 15px;
+    max-width: 33.333%;
+
+}
+
+.card {
+    margin-top: 30px;
+    background-color: white;
+    border: 1px solid transparent;
+    border-radius: 0.8rem;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .14);   
+}
+.card__body {
+        padding: 0.93rem 20px;
+        position: relative; 
+}
+
+    
+.card__title {
+    font-size: 15px;
+    color: rgb(149, 149, 149);
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: 'Montserrat'
+}
+
+.card__icon {
+    border-radius: 0.3rem;
+    padding: 15px;
+    margin-top: -20px;
+    margin-right: 20px;
+    box-shadow: 0, 4px, 20px (0, 0, 0, rgba(0, 0, 0, .14));
+float: left;
+} 
+
+.card__head {
+    align-items: center;
+    margin: 0 15px;
+}
+
+.icon-list {
+background-color: #073042;
+i {
+    color: white;
+    font-size: 20px;
+}
+}
+
+// .icon-add {
+//     i {
+//         font-size: 22px;
+//     }
+// }

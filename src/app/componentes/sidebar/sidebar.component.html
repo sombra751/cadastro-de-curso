@@ -1,0 +1,66 @@
+<div class="sidenav image-sidenav" [ngClass]="collapsed? 'sidenav-collapsed': ''" *ngIf="mostrarMenu">
+    <div class="logo-container">
+        <button class="logo" (click)="toogleCollapse()">A</button>
+        <div class="logo-text" @fadeInOut *ngIf="collapsed">Angular</div>
+        <button class="btn-close" @rotate *ngIf="collapsed" (click)="closeSidenav()">
+            <i class="bi bi-x"></i>
+        </button>
+    </div>
+    <ul class="sidenav-nav">
+        <li class="sidenav-nav-item divider">
+            <a class="sidenav-nav-link" [matMenuTriggerFor]="menu">
+                <i class="sidenav-link-icon bi bi-person-fill"></i>
+                <div *ngFor="let user of users">
+                <span class="sidenav-link-text" *ngIf="collapsed">Olá, {{user.username}}!</span>
+                </div>
+            </a>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>Meu perfil</button>
+                <button mat-menu-item (click)="logout()">Sair</button>
+            </mat-menu>
+        </li>
+        <li class="sidenav-nav-item">
+            <a class="sidenav-nav-link" routerLink="/dashboard" routerLinkActive="active">
+                <i class="sidenav-link-icon bi bi-border-style"></i>
+                <span class="sidenav-link-text" *ngIf="collapsed">Dashboard</span>
+            </a>
+        </li>
+        <li class="sidenav-nav-item">
+            <a class="sidenav-nav-link " routerLink="/cursos" routerLinkActive="active">
+                <i class="sidenav-link-icon bi bi-mortarboard"></i>
+                <span class="sidenav-link-text" *ngIf="collapsed">Cursos</span>
+            </a>
+        </li>
+        <li class="sidenav-nav-item">
+            <a class="sidenav-nav-link " routerLink="/materias" routerLinkActive="active">
+                <i class="sidenav-link-icon bi bi-journal-text"></i>
+                <span class="sidenav-link-text" *ngIf="collapsed">Materias</span>
+            </a>
+        </li>
+        <li class="sidenav-nav-item">
+            <a class="sidenav-nav-link " routerLink="/alunos" routerLinkActive="active">
+                <i class="sidenav-link-icon bi bi-person-add"></i>
+                <span class="sidenav-link-text" *ngIf="collapsed">Alunos</span>
+            </a>
+        </li>
+        <!-- <li class="sidenav-nav-item">
+            <a class="sidenav-nav-link" routerLink="/rxjs-poc" routerLinkActive="active">
+                <i class="sidenav-link-icon bi bi-pencil-square"></i>
+                <span class="sidenav-link-text" *ngIf="collapsed">RXjS-POC</span>
+            </a>
+        </li>
+        <li class="sidenav-nav-item">
+            <a class="sidenav-nav-link" routerLink="/upload" routerLinkActive="active">
+                <i class="sidenav-link-icon bi bi-file-zip"></i>
+                <span class="sidenav-link-text" *ngIf="collapsed">Arquivo</span>
+            </a>
+        </li>
+        <li class="sidenav-nav-item">
+            <a class="sidenav-nav-link" routerLink="/busca-reativa" routerLinkActive="active">
+                <i class="sidenav-link-icon bi bi-search"></i>
+                <span class="sidenav-link-text" *ngIf="collapsed">Pesquisa Reativa</span>
+            </a>
+        </li> -->
+        
+    </ul>
+</div>

@@ -1,0 +1,40 @@
+* {
+    list-style: none;
+    text-decoration: none;
+}
+
+header {
+    width: 100%;
+    padding: 20px 50px;
+    background-color: #222;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+        color: #fff;
+    }
+
+    ul {
+        display: flex;
+
+
+        li {
+            margin-left: 20px;
+
+
+            a {
+                padding: 5px 10px;
+                font-weight: 500;
+                color: white;
+                border-radius: 0.5rem;
+
+                &:hover {
+                    color: black;
+                    background-color: lightgray;
+                }
+            }
+
+        }
+    }
+}
