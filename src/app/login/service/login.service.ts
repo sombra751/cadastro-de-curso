@@ -3,13 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { User } from '../user';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
   mostrarMenuEmitter = new EventEmitter<boolean>();
-  apiurl = 'http://localhost:5000'
+  private readonly baseAPI = `${environment.API}admins`;
   private usuarioAutenticado: boolean = false
   private usuarioAtual!: User | any;
 
@@ -17,7 +18,7 @@ export class LoginService {
 
 
   authenticateUser(username: string, password: string): Observable<any> {
-    return this.http.get<any>('http://localhost:5000/user')
+    return this.http.get<any>(`${this.baseAPI}`)
       .pipe(
         map((res: any) => {
           const user = res.find((user: any) => user.username === username && user.password === password);
@@ -41,7 +42,7 @@ export class LoginService {
   }
 
   getUsers():Observable<any> {
-    return this.http.get<any>('http://localhost:5000/user')
+    return this.http.get<any>(`${this.baseAPI}`)
   }
 
   getUsuarioAutenticado() {

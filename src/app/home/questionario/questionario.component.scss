@@ -1,0 +1,62 @@
+/* Estilizando o contêiner do questionário */
+.questionario-container {
+  font-family: Arial, sans-serif;
+  max-width: 70%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+
+  li {
+    list-style: none;
+    margin-bottom: 10px;
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  input[type="radio"] {
+    margin-right: 10px;
+  }
+
+  .question__title {
+    text-align: center;
+    font-weight: 600;
+  }
+}
+
+.index-perguntas {
+  text-align: center;
+}
+
+.title-primary {
+  text-align: center;
+  font-weight: 600;
+}
+
+
+// /* Estilizando o botão de resposta */
+// .questionario-container button {
+//   background-color: #4285f4;
+//   color: #fff;
+//   border: none;
+//   padding: 10px 20px;
+//   font-size: 1em;
+//   cursor: pointer;
+//   border-radius: 5px;
+//   margin-top: 20px;
+//   transition: background-color 0.3s;
+// }
+
+// .questionario-container button:hover {
+//   background-color: #357ae8;
+// }

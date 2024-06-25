@@ -3,6 +3,7 @@ import { delay, tap, take } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,10 @@ export class CursosService {
   private readonly API = `${environment.API}cursos`;
 
   constructor(private http: HttpClient) { }
+  
+  getdocentes(): Observable<Curso[]> {
+    return this.http.get<Curso[]>(`${environment.API}usuarios-docente`);
+  }
 
   list() {
    return this.http.get<Curso[]>(this.API)

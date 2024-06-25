@@ -28,18 +28,20 @@ export class AlunoResolverGuard implements Resolve<Aluno> {
     return of(
       {
         id: null,
-        nome: '',
-        curso: [],
+        nome: null,
         telefone: null,
-        email: '',
-        endereco: {
-          cep: '',
-          numero: '',
-          rua: '',
-          bairro: '',
-          cidade: '',
-          estado: ''
-        }
+        email: null,
+        numero:null,
+        complemento:null,
+        rua:null,
+        bairro:null,
+        cidade:null,
+        estado:null,
+        cep:null,
+        // curso_id:[],
+        password: null,
+        testes: [],
+        matriculas: []
       } // Provide a dummy Curso object
     );
   }

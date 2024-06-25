@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
+import { CommonModule } from '@angular/common';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +21,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { Shared1Module } from './shared1/shared1.module';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,9 +31,11 @@ import { Shared1Module } from './shared1/shared1.module';
     BodyComponent,
     LoginComponent,
     FooterComponent,
-    DashboardComponent,    
+    DashboardComponent,
+  
   ],
   imports: [
+    Shared1Module,
     BrowserModule,
     AppRoutingModule,
     UnsubscribeRxjsModule,
@@ -39,7 +43,7 @@ import { Shared1Module } from './shared1/shared1.module';
     ModalModule.forRoot(),
     SharedModule,
     ReactiveFormsModule,
-    Shared1Module
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,8 +14,10 @@ export class Card1Component implements OnInit  {
   @Input() cardIconModifier: any
   @Input() cardIconClass: any
   @Input() cardTitle: any
+  @Input() cardSubTitle: any
   @Input() cardSvgPath: any
   @Input() cardFooterModifier: any
+  @Input() cardTitleModifier: any
 
   constructor() { }
  

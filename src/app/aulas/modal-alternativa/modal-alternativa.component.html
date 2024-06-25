@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Adicionar alternativa</h1>
+<div mat-dialog-content>
+    <form [formGroup]="formAlternativa">
+        <div class="row">
+            <div class="col-md-8">
+                <mat-form-field>
+                    <mat-label>Alternativa</mat-label>
+                    <input type="text" matInput formControlName="texto">
+                    <mat-error *ngIf="hasError('texto') && !hasError('required')">
+                        O texto da alternativa é obrigatório!
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-3 center_center">
+                <input id="alternativaCorreta" type="checkbox" formControlName="alternativaCorreta" />Correta
+            </div>
+        </div>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-button mat-dialog-close cdkFocusInitial (click)="onSubmit()">Criar</button>
+</div>

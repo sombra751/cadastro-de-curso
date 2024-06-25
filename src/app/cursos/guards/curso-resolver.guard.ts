@@ -27,7 +27,8 @@ export class CursoResolverGuard implements Resolve<Curso> {
         id: null,
         nome: null,
         descricao: null,
-        duracao: null
+        duracao: null,
+        docente_id: null
       } // Provide a dummy Curso object
     );
   }

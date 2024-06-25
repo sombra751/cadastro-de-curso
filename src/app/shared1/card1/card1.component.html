@@ -3,12 +3,17 @@
         <div class="card__icon icon-list {{ cardIconModifier }}">
             <i class="{{ cardIconClass }}"></i>
         </div>
-        <div class="card__title">
+        <div class="card__title {{ cardTitleModifier }}">
             <p>{{ cardTitle }}</p>
+            <p>{{ cardSubTitle }}</p>
         </div>
     </div>
     <div class="card__body">
         <ng-content select=".cardBody" ></ng-content>
+    </div>
+
+    <div>
+        <ng-content select=".cardDivider"></ng-content>
     </div>
     <div class="{{ cardFooterModifier }} text__right">
         <ng-content select=".cardFooter"></ng-content>

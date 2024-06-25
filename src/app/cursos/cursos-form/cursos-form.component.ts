@@ -17,10 +17,12 @@ export class CursosFormComponent implements OnInit {
   form!: FormGroup;
   submitted: boolean = false;
   title: string = 'Adição de curso'
+docentes: any[] = []
 
   constructor(
     private fb: FormBuilder,
     private cursosService: Cursos2Service,
+    private cursosService1: CursosService,
     private location: Location,
     private route: ActivatedRoute,
     private router: Router,
@@ -45,8 +47,18 @@ export class CursosFormComponent implements OnInit {
         ],
       ],
       descricao: [curso.descricao, [Validators.required]],
+      docente_id: [curso.docente_id, [Validators.required]],
       duracao: [curso.duracao, [Validators.required]],
     });
+
+    this.cursosService1.getdocentes().subscribe(
+      (dados) => {
+        this.docentes = dados;
+      },
+      (error) => {
+        this.alertService.showAlertDanger(error);
+      }
+    );
   }
 
 
@@ -56,10 +68,8 @@ export class CursosFormComponent implements OnInit {
 
   onSubmit(): void {
     this.submitted = true;
-    console.log(this.form.value);
 
     if (this.form.valid) {
-      console.log('submit');
       let msgSuccess = 'Curso criado com sucesso!';
       let msgError = 'Erro ao criar curso, tente novamente!';
       if (this.form.value.id) {

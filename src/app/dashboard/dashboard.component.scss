@@ -1,3 +1,29 @@
+
+/* Media query para tela menor ou igual a 768px */
+@media (max-width: 768px) {
+    .cards {
+        padding: 15px !important;
+        width: 100% !important;
+    }
+
+    .card_text {
+        height: 100% !important;
+    }
+}
+
+/* Media query para tela maior que 768px e menor que 1200px */
+@media (min-width: 769px) and (max-width: 1200px) {
+    .cards {
+        padding: 15px !important;
+        width: 50% !important;
+    }
+    .card_text {
+        height: 280px !important;
+    }
+    
+}
+
+
 i {
     padding: 0 10px;
 }
@@ -35,7 +61,7 @@ p {
 .cards {
 
     padding: 0 15px;
-    max-width: 33.333%;
+    width: 33.333%;
 
 }
 
@@ -46,11 +72,12 @@ p {
     border-radius: 0.8rem;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .14);
 
-    .card-body {
+    .card_body {
             padding: 0.93rem 20px;
             position: relative;
+            height: 100%;
         
-            .card-actions {
+            .card_actions {
                 position: absolute;
                 z-index: 1;
                 top: -50px;
@@ -64,7 +91,7 @@ p {
     }
 
        
-.card-title {
+.card_title {
     display: flex;
     align-items: center;
     margin: 0 15px;
@@ -72,7 +99,7 @@ p {
 
 }
 
-.card-header {
+.card_header {
     border-radius: 0.3rem;
     padding: 15px;
     margin-top: -20px;
@@ -102,7 +129,7 @@ p {
 .map-mundial {
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .14);
 
-    .card-title {
+    .card_title {
         justify-content: start;
 
         .icon-mundo {
@@ -145,7 +172,7 @@ p {
     }
 }
 
-.card-icon {
+.card_icon {
     .icon-sofa {
         background: linear-gradient(60deg, #26c6da, #00acc1);
 
@@ -185,19 +212,19 @@ p {
 
 
 
-.card-status {
+.card_status {
     display: flex;
     flex-direction: column;
     text-align: right;
 
 
 
-    .card-name {
+    .card_name {
         color: #999;
         font-size: 13px;
     }
 
-    .card-stats {
+    .card_stats {
         font-size: 23px;
         font-weight: 100;
         color: black;
@@ -206,7 +233,7 @@ p {
 
 }
 
-.card-footer {
+.card_footer {
     display: flex;
     padding: 10px 0 0;
     margin: 0 15px 10px;
@@ -223,25 +250,25 @@ p {
 
 
 
-.card-sale {
+.card_sale {
 
     h4,
     p {
         text-align: center;
     }
 
-    .card-description {
+    .card_description {
         color: #999;
         font-size: 15px;
         font-weight: 300;
     }
 
-    .card-text {
+    .card_text {
         height: 200px;
     }
 }
 
-.card-image {
+.card_image {
     position: relative;
     padding: 10px;
     margin-top: -30px;
@@ -263,12 +290,12 @@ p {
 
 }
 
-.card-value-location {
+.card_value_location {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    .card-location {
+    .card_location {
         display: flex;
         flex-direction: row;
 
@@ -276,7 +303,7 @@ p {
 }
 
 
-.card-category {
+.card_category {
     display: flex;
     color: #999;
 }

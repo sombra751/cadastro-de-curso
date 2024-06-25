@@ -1,147 +1,201 @@
-<app-card1 [cardIconModifier]="'icon-add'" [cardTitle]="title" [cardIconClass]="'bi bi-person-add'" [cardFooterModifier]="'card__footer'">
+<app-card1 [cardIconModifier]="'icon-add'" [cardTitle]="title" [cardIconClass]="'bi bi-person-add'"
+  [cardFooterModifier]="'card__footer'">
   <div class="cardBody">
-  <form class="needs-validation" novalidate [formGroup]="form" id="form" (ngSubmit)="onSubmit()">
-      <div>
-        <div class="row">
-          <div class="col-md-6">
-            <mat-form-field>
-              <mat-label for="nome">Nome</mat-label>
-              <input type="nome" matInput id="nome" formControlName="nome" placeholder="nome do curso">
-              <mat-error *ngIf="hasError('nome')">
-                <p *ngIf="hasError('nome')?.['required']">O nome do aluno é obrigatorio!</p>
-                <p *ngIf="hasError('nome')?.['minlength']"> O nome deve ter no minimo 3 caracteres.</p>
-              </mat-error>            
-            </mat-form-field>
-          </div>
-          <div class="col-md-6">
-            <mat-form-field>
-              <mat-label for="email">E-mail</mat-label>
-              <input type="email" matInput id="email" formControlName="email" placeholder="email do aluno">
-              <mat-error *ngIf="hasError('email')">
-                <p *ngIf="hasError('email')?.['required']">O email do aluno é obrigatorio!</p>
-                <p *ngIf="hasError('email')?.['email']"> E-mail inválido!</p>
-              </mat-error>
-            </mat-form-field>
-          </div>
+    <form class="needs-validation" novalidate [formGroup]="form" id="form" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field>
+            <mat-label for="nome">Nome</mat-label>
+            <input type="nome" matInput id="nome" formControlName="nome" placeholder="nome do curso">
+            <mat-error *ngIf="hasError('nome')">
+              <p *ngIf="hasError('nome')?.['required']">O nome do aluno é obrigatório!</p>
+              <p *ngIf="hasError('nome')?.['minlength']"> O nome deve ter no minimo 3 caracteres.</p>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field>
+            <mat-label>Telefone</mat-label>
+            <input type="tel" formControlName="telefone" matInput placeholder="(xx) xxxx-xxxx">
+            <mat-error *ngIf="hasError('telefone')">
+              <p *ngIf="hasError('telefone')?.['required']">O telefone do aluno é obrigatório!</p>
+              <p *ngIf="hasError('telefone')?.['pattern']"> Telefone inválido!</p>
+            </mat-error>
+          </mat-form-field>
         </div>
       </div>
-      <div>
-        <div class="row">
-          <div class="col-md-12">
-            <mat-form-field>
-              <mat-label>Telefone</mat-label>
-              <span matPrefix>+55 &nbsp;</span>
-              <input type="tel" formControlName="telefone" matInput placeholder="(xx) xxxx-xxxx">
-              <mat-error *ngIf="hasError('telefone')">
-                <p *ngIf="hasError('telefone')?.['required']">O telefone do aluno é obrigatorio!</p>
-                <p *ngIf="hasError('telefone')?.['pattern']"> Telefone inválido!</p>
-              </mat-error>
-            </mat-form-field>
-          </div>
+      <div class="row">
+        <div class="col-md-4">
+          <mat-form-field>
+            <mat-label for="email">E-mail</mat-label>
+            <input type="email" matInput id="email" formControlName="email" placeholder="email do aluno">
+            <mat-error *ngIf="hasError('email')">
+              <p *ngIf="hasError('email')?.['required']">O e-mail do aluno é obrigatório!</p>
+              <p *ngIf="hasError('email')?.['email']"> E-mail inválido!</p>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field>
+            <mat-label>Senha</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" id="password">
+            <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <i class="{{hide ? 'bi bi-eye-fill' : 'bi bi-eye-slash'}}"></i>
+            </button>
+            <mat-error *ngIf="hasError('password') && !hasError('mat')">
+              A senha do aluno é obrigatório!
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field>
+            <mat-label>Confirmação de senha</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="confirmPassword" id="confirmPassword">
+            <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <i class="{{hide ? 'bi bi-eye-fill' : 'bi bi-eye-slash'}}"></i>
+            </button>
+            <mat-error *ngIf="hasError('confirmPassword')">
+              <p *ngIf="hasError('confirmPassword')?.['required']">A senha de confirmação é obrigatória!</p>
+            </mat-error>
+            <mat-error *ngIf="form.get('confirmPassword')?.hasError('MustMatch')">
+              {{ form.get('confirmPassword')?.errors?.['message'] }}
+            </mat-error>
+                 
+          </mat-form-field>
         </div>
       </div>
 
-      <div formGroupName="endereco">
-        <div class="row">
-          <div class="col-md-4">
-            <mat-form-field>
-              <mat-label>Cep</mat-label>
-              <input type="text" matInput id="cep" formControlName="cep" />
-              <mat-error *ngIf="hasError('endereco.cep')">
-                <p *ngIf="hasError('endereco.cep')?.['required']">O cep é obrigatorio!</p>
-                <p *ngIf="hasError('endereco.cep')?.['pattern']">O cep inválido!</p>
-              </mat-error>
-            </mat-form-field>
-          </div>
-
-          <div class="col-md-4">
-            <mat-form-field>
-              <mat-label>Número</mat-label>
-              <input type="text" matInput id="numero" formControlName="numero" />
-              <mat-error *ngIf="hasError('endereco.numero')">
-                <p *ngIf="hasError('endereco.numero')?.['required']">O número é obrigatorio!</p>
-              </mat-error>
-            </mat-form-field>
-          </div>
-
-          <div class="col-md-4">
-            <mat-form-field>
-              <mat-label>Complemento</mat-label>
-              <input type="text" matInput id="complemento" formControlName="complemento" />
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-3">
-            <mat-form-field>
-              <mat-label>Rua</mat-label>
-              <input type="text" matInput id="rua" placeholder="rua" formControlName="rua" />
-              <mat-error *ngIf="hasError('endereco.rua')">
-                <p *ngIf="hasError('endereco.rua')?.['required']">A rua é obrigatorio!</p>
-              </mat-error>
-            </mat-form-field>
-          </div>
+      <div class="row">
         
-          <div class="col-md-3">
-            <mat-form-field>
-              <mat-label>Bairro</mat-label>
-              <input type="text" matInput id="bairro" formControlName="bairro" />
-              <mat-error *ngIf="hasError('endereco.bairro')">
-                <p *ngIf="hasError('endereco.bairro')?.['required']">O bairro é obrigatorio!</p>
-              </mat-error>
-            </mat-form-field>
-          </div>
-          
-          <div class="col-md-3">
-            <mat-form-field>
-              <mat-label>Estado</mat-label>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-3">
+          <mat-form-field>
+            <mat-label>Cep</mat-label>
+            <input type="text" matInput id="cep" formControlName="cep" />
+            <mat-error *ngIf="hasError('cep')">
+              <p *ngIf="hasError('cep')?.['required']">O cep é obrigatório!</p>
+              <p *ngIf="hasError('cep')?.['pattern']">O cep inválido!</p>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-4">
+          <mat-form-field>
+            <mat-label>Rua</mat-label>
+            <input type="text" matInput id="rua" placeholder="rua" formControlName="rua" />
+            <mat-error *ngIf="hasError('rua')">
+              <p *ngIf="hasError('rua')?.['required']">A rua é obrigatório!</p>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-2">
+          <mat-form-field>
+            <mat-label>Número</mat-label>
+            <input type="text" matInput id="numero" formControlName="numero" />
+            <mat-error *ngIf="hasError('numero')">
+              <p *ngIf="hasError('numero')?.['required']">O número é obrigatório!</p>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field>
+            <mat-label>Complemento</mat-label>
+            <input type="text" matInput id="complemento" formControlName="complemento" />
+          </mat-form-field>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-4">
+          <mat-form-field>
+            <mat-label>Bairro</mat-label>
+            <input type="text" matInput id="bairro" formControlName="bairro" />
+            <mat-error *ngIf="hasError('bairro')">
+              <p *ngIf="hasError('bairro')?.['required']">O bairro é obrigatório!</p>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field>
+            <mat-label>Cidade</mat-label>
+            <mat-select id="cidade" formControlName="cidade">
+              <mat-option *ngFor="let cidade of cidades" [value]="cidade.nome">{{ cidade.nome }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="hasError('cidade')">
+              <p *ngIf="hasError('cidade')?.['required']">O cidade é obrigatório!</p>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field>
+            <mat-label>Estado</mat-label>
             <mat-select id="estado" formControlName="estado">
               <mat-option [value]="estado.sigla" *ngFor="let estado of estados">
                 {{ estado.nome }}
               </mat-option>
             </mat-select>
-            <mat-error *ngIf="hasError('endereco.estado')">
-              <p *ngIf="hasError('endereco.estado')?.['required']">O estado é obrigatorio!</p>
+            <mat-error *ngIf="hasError('estado')">
+              <p *ngIf="hasError('estado')?.['required']">O estado é obrigatório!</p>
             </mat-error>
-            </mat-form-field>
-          </div>
-
-          <div class="col-md-3">
-            <mat-form-field>
-              <mat-label>Cidade</mat-label>
-            <mat-select  id="cidade" formControlName="cidade">
-              <mat-option *ngFor="let cidade of cidades" [value]="cidade.nome">{{ cidade.nome }}</mat-option>
-            </mat-select>
-            <mat-error *ngIf="hasError('endereco.cidade')">
-              <p *ngIf="hasError('endereco.cidade')?.['required']">O Cidade é obrigatorio!</p>
-            </mat-error>
-            </mat-form-field>
-          </div>
+          </mat-form-field>
         </div>
+
+
       </div>
-      <div>
-        <div class="row">
-          <div class="col-md-12">
+
+      <!-- <div>
+        <div class="row" formArrayName="testes">
+          <div *ngFor="let testeGroup of getTestesControls(); let i = index">
+            <div [formGroupName]="i">
+              <mat-form-field>
+                <mat-label>Selecione a role</mat-label>
+                <mat-select formControlName="roleId">
+                  <mat-option *ngFor="let item of roles" [value]="item.id">
+                    {{ item.nome }}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="hasError('testes.' + i + '.roleId')">
+                  <p *ngIf="hasError('testes.' + i + '.roleId')?.['required']">A escolha da role é obrigatória!</p>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </div> -->
+
+      <div class="row" formArrayName="matriculas">
+        <div *ngFor="let matriculaGroup of getMatriculasControls(); let j = index">
+          <div [formGroupName]="j">
             <mat-form-field>
               <mat-label>Selecione o curso</mat-label>
-              <mat-select formControlName="curso" multiple>
-                <mat-option  *ngFor="let item of cursos" [value]="item.nome">
+              <mat-select formControlName="curso_id">
+                <mat-option *ngFor="let item of cursos" [value]="item.id">
                   {{item.nome}}
                 </mat-option>
               </mat-select>
-              <mat-error *ngIf="hasError('curso') && !hasError('required')">
-                A escolha do curso é obrigatorio!
+              <mat-error *ngIf="hasError('matriculas.' + j + '.curso_id') && !hasError('required')">
+                A escolha do curso é obrigatório!
               </mat-error>
             </mat-form-field>
           </div>
         </div>
       </div>
+
+
+
+      <!-- </div> -->
     </form>
   </div>
   <div class="cardFooter">
     <div>
       <button mat-raised-button type="submit" class="btn btn-red" form="form">Salvar</button>
-     <button type="button" class="btn" form="form" (click)="onCancel()">Cancelar</button>
+      <button type="button" class="btn" form="form" (click)="onCancel()">Cancelar</button>
     </div>
   </div>
 </app-card1>

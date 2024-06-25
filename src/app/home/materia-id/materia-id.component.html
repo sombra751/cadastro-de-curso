@@ -1,0 +1,48 @@
+<!-- <div *ngIf="materia">
+{{materia.nome}} -->
+
+
+<!-- <div *ngFor="let materia of materias">
+    <h2>{{ materia.nome }}</h2>
+    <iframe width="560" height="315" [src]="materia.youtubeUrl"></iframe>
+  </div> -->
+  <div class="card-square yellow">
+    <div class="card__header">
+      <i class="bi bi-youtube danger"></i>
+      <p>Video Base</p>
+    </div>
+    <div class="card__content" style="text-align: center;">
+      <iframe #youtubeVideo width="95%" height="700px" src="https://www.youtube.com/embed/1ozGKlOzEVc" frameborder="0" allowfullscreen
+        (click)="verificarCliqueNoVideo()">
+      </iframe>
+    </div>
+    
+  </div>
+  <div >
+    <h1>AVALIANDO CONHECIMENTOS</h1>
+  </div>
+
+  <div class="card-square">
+    <div class="card__header">
+      <img  class="card__icon" src="assets/images1/prova.svg" alt="">
+      <p>Atividade Avaliativa</p>
+    </div>
+    <div class="card__content">
+      <h3>Prezado Estudante,</h3>
+      <h3>Esta Atividade Avaliativa é composta por cinco questões, poderá ser realizada em até três tentativas e as questões serão retiradas de um banco de questões e escolhidas aleatoriamente.
+      </h3>
+      <h3>Inicie a tentativa tendo a certeza de que irá realizá-la, pois a cada acesso ao questionário o sistema contará como uma tentativa.</h3>
+    </div>
+    <div class="card__footer">
+      <button mat-raised-button (click)="iniciarQuestao()" [disabled]="semAtividades? true : false">Iniciar Questão</button>
+      <h5 *ngIf="semAtividades? true : false" class="danger">Suas tentativas acabaram</h5>
+    </div>
+  </div>
+<!-- </div> -->
+
+<div class="row">
+    <div>
+        
+    </div>
+</div>
+

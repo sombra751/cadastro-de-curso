@@ -9,7 +9,8 @@ import { Observable, Subject } from 'rxjs';
 
 export enum AlertTypes {
   DANGER = 'danger',
-  SUCCESS = 'success'
+  SUCCESS = 'success',
+  INFO = 'info'
 }
 
 @Injectable({
@@ -42,6 +43,11 @@ export class AlertModalService {
   showAlertSuccess(message: any) {
     this.showAlert(message, AlertTypes.SUCCESS, 1000);
   }
+
+  showAlertInfo(message: any) {
+    this.showAlert(message, AlertTypes.INFO, 2000)
+  }
+
 
   showConfirm(
     title: string,

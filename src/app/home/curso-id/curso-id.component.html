@@ -1,0 +1,196 @@
+<div *ngIf="curso">
+
+    <!-- <h3>Matéria</h3>
+    <button (click)="iniciarQuestao()">Iniciar Questão</button>
+    mat -->
+    <!-- <mat-card>
+        <mat-card-header>
+            <mat-card-title>{{ curso.nome }}</mat-card-title>
+    <mat-card-subtitle>Completo</mat-card-subtitle>
+            <img src="assets/images/{{curso.img}}" alt="{{ curso.nome }}">
+        
+            <div *ngIf="!curso">
+                <p>Curso não encontrado.</p>
+            </div>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+                <div class="col-md-9">
+                    <mat-tab-group>
+                        <mat-tab label="Descricão"> {{curso.descricao}} </mat-tab>
+                        <mat-tab label="Materias">
+                            <div class="example-large-box mat-elevation-z4">
+                                <mat-list role="list" *ngFor="let item of materias">
+                                    <mat-list-item role="listitem"><i
+                                            class="bi bi-play-circle-fill"></i>&nbsp;{{item.nome}}</mat-list-item>
+                                </mat-list>
+                              </div>
+                        </mat-tab>
+                    </mat-tab-group>
+                </div>
+                <div class="col-md-3">
+                    <mat-list role="list">
+                        <mat-list-item role="listitem"><i class="bi bi-tags-fill"></i>&nbsp;Gratis</mat-list-item>
+                        <mat-list-item role="listitem"><i class="bi bi-infinity"></i>&nbsp;Acesso ilimitado</mat-list-item>
+                        <mat-list-item role="listitem"><i class="bi bi-journal-bookmark-fill"></i>&nbsp;Aulas</mat-list-item>
+                        <mat-list-item role="listitem"><i class="bi bi-github"></i>&nbsp;Dowload código fonte</mat-list-item>
+                        <mat-list-item role="listitem"><i class="bi bi-card-checklist"></i>&nbsp;Certificado ao final do
+                            curso</mat-list-item>
+                    </mat-list>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card> -->
+
+
+    <!-- <app-card1 [cardTitle]="curso.nome" [cardIconClass]="'bi bi-journal-text'"
+    [cardFooterModifier]="'card__footer'" [cardIconModifier]="'card__icon-modifier'" [cardTitleModifier]="'card__title-modifier '">
+        <div class="cardBody">
+
+            <div class="row">
+                <div class="col-md-9">
+                    <mat-tab-group>
+                        <mat-tab label="Materias">
+                            <mat-list role="list" *ngFor="let item of materias">
+                                <a class="materias" (click)="onView(item.id)">
+                                    <mat-list-item role="listitem"><i class="bi bi-play-circle-fill"></i>&nbsp;
+                                        {{item.nome}}
+                                    </mat-list-item>
+                                </a>
+                            </mat-list>
+                        </mat-tab>
+                        <mat-tab label="Descricão"> {{curso.descricao}} </mat-tab>
+                    </mat-tab-group>
+                </div>
+                <div class="col-md-3 list-icons">
+                    <mat-list role="list">
+                        <mat-list-item role="listitem"><i class="bi bi-tags-fill"></i>&nbsp;Gratis</mat-list-item>
+                        <mat-list-item role="listitem"><i class="bi bi-infinity"></i>&nbsp;Acesso
+                            ilimitado</mat-list-item>
+                        <mat-list-item role="listitem"><i
+                                class="bi bi-journal-bookmark-fill"></i>&nbsp;Aulas</mat-list-item>
+                        <mat-list-item role="listitem"><i class="bi bi-github"></i>&nbsp;Dowload código
+                            fonte</mat-list-item>
+                        <mat-list-item role="listitem"><i class="bi bi-card-checklist"></i>&nbsp;Certificado ao final do
+                            curso</mat-list-item>
+                    </mat-list>
+                </div>
+            </div>
+        </div>
+        <div class="cardFooter">
+            <button mat-raised-button (click)="voltar()">Voltar</button>
+        </div>
+    </app-card1> -->
+    <app-card1 [cardTitle]="curso.nome" [cardIconClass]="'bi bi-journal-text'" [cardFooterModifier]="'card__footer'"
+        [cardIconModifier]="'card__icon-modifier'" [cardTitleModifier]="'card__title-modifier '">
+        <div class="cardBody">
+
+            <div class="row">
+                <div class="col-md-9">
+                    <mat-tab-group>
+                        <mat-tab label="Materias">
+                            <mat-list role="list" *ngFor="let materia of  cursoDetalhes.Materias">
+                                    <mat-accordion>
+                                        <mat-expansion-panel>
+                                          <mat-expansion-panel-header>
+                                            <mat-panel-title>
+                                            
+                                                <h3>{{ materia.nome }}</h3>
+                                            </mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <div *ngFor="let aula of materia.aulas">
+                                                <a class="materias" (click)="onView(aula.id)">
+                                                    <mat-list-item role="listitem"><i
+                                                            class="bi bi-play-circle-fill"></i>&nbsp;
+                                                        {{ aula.nome }}
+                                                    </mat-list-item>
+                                                </a>
+                                            </div>
+                                        </mat-expansion-panel>
+                                    </mat-accordion>
+                              
+                            </mat-list>
+                        </mat-tab>
+                        <mat-tab label="Descricão"> {{curso.descricao}} </mat-tab>
+
+                    </mat-tab-group>
+                </div>
+                <div class="col-md-3 list-icons">
+                    <mat-list role="list">
+                        <mat-list-item role="listitem"><i class="bi bi-tags-fill"></i>&nbsp;Gratis</mat-list-item>
+                        <mat-list-item role="listitem"><i class="bi bi-infinity"></i>&nbsp;Acesso
+                            ilimitado</mat-list-item>
+                        <mat-list-item role="listitem"><i
+                                class="bi bi-journal-bookmark-fill"></i>&nbsp;Aulas</mat-list-item>
+                        <mat-list-item role="listitem"><i class="bi bi-github"></i>&nbsp;Dowload código
+                            fonte</mat-list-item>
+                        <mat-list-item role="listitem"><i class="bi bi-card-checklist"></i>&nbsp;Certificado ao final do
+                            curso</mat-list-item>
+                    </mat-list>
+                </div>
+            </div>
+        </div>
+        <div class="cardFooter">
+            <button mat-raised-button (click)="voltar()">Voltar</button>
+        </div>
+    </app-card1>
+
+    <!-- <div *ngIf="curso">
+        <h2>{{ curso.nome }}</h2>
+
+        <div *ngFor="let materia of materias">
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+
+                            <h3>{{ materia.nome }}</h3>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                </mat-expansion-panel>
+            </mat-accordion>
+
+            <div *ngFor="let aula of materia.aulas">
+                <h4>{{ aula.nome }}</h4>
+                <p>YouTube URL: {{ aula.youtubeUrl }}</p>
+
+                <div *ngFor="let atividade of aula.Atividades">
+                    <p>{{ atividade.pergunta }}</p>
+
+                    <ul>
+                        <li *ngFor="let alternativa of atividade.Alternativas">
+                            {{ alternativa.texto }} (Correta: {{ alternativa.alternativaCorreta ? 'Sim' : 'Não' }})
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+</div>
+
+<!-- curso-detalhes.component.html
+<div *ngIf="cursoDetalhes">
+    <h2>{{ cursoDetalhes.nome }}</h2>
+    <p>{{ cursoDetalhes.descricao }}</p>
+  
+    <div *ngFor="let materia of cursoDetalhes.Materias">
+      <h3>{{ materia.nome }}</h3>
+  
+      <div *ngFor="let aula of materia.aulas">
+        <h4>{{ aula.nome }}</h4>
+  
+        <div *ngFor="let atividade of aula.Atividades">
+          <p>{{ atividade.pergunta }}</p>
+  
+          <ul>
+            <li *ngFor="let alternativa of atividade.Alternativas">
+              {{ alternativa.texto }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+   -->

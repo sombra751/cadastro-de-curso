@@ -22,13 +22,14 @@ export class MateriaResolverGuard implements Resolve<Materia> {
     if (route.params && route.params['id']) {
       // Assuming loadById returns an Observable<Curso>
       return this.materiasService.loadById(route.params['id']);
+      
     }
     return of(
       {
         id: null,
         nome: null,
-        curso: [],
-        youtubeUrl: ''
+        curso_id: [],
+        youtubeUrl: null,
       } // Provide a dummy Curso object
     );
   }

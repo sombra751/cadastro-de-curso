@@ -1,3 +1,25 @@
+.w-md-4 {
+    width: 33.333%;
+}
+
+.w-col-3 {
+    width: 25%;
+}
+
+/* Media query para tela menor ou igual a 768px */
+@media (max-width: 768px) {
+    .w-md-4, .w-col-3 {
+        width: 100%;
+    }
+}
+
+/* Media query para tela maior que 768px e menor que 1200px */
+@media (min-width: 769px) and (max-width: 1200px) {
+    .w-md-4, .w-col-3 {
+        width: 50%;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -121,4 +143,20 @@ ul {
 .divider {
     border-bottom: 0.1em solid #ffffff59;
     width: 100%;
+}
+
+
+.row {
+    display: -webkit-box;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+
+.center-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }

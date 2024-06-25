@@ -1,0 +1,38 @@
+
+<div class="imgb">
+    <div class="texto">
+        <h1>Desenvolva suas Habilidades e 
+            <br>Transforme seu Futuro</h1>
+    </div>
+</div>
+
+<div class="row">
+    <h1>Cursos disponiveis</h1>
+    <ul *ngFor="let curso of cursos | async" class="w-md-4">
+        <app-card1 [cardTitle]="curso.nome" [cardIconClass]="'bi bi-journal-text'"
+      [cardFooterModifier]="'card__footer'" [cardIconModifier]="'card__icon-modifier'" [cardTitleModifier]="'card__title-modifier '">
+      <div class="cardBody">
+        {{curso.descricao}}
+        </div>
+        <div class="cardDivider">
+            <hr class="horizontal dark">
+        </div>
+        <div class="cardFooter">
+            <div>
+                <a
+                 (click)="onView(curso.id)">
+                    Saiba mais
+                    <i class="bi bi-arrow-right-short"></i>
+                </a>
+            </div>
+
+            <div>
+                <i class="bi bi-clock-history"></i>
+                 {{curso.duracao}} {{ curso.duracao > 1 ? 'horas' : 'hora' }} 
+            </div>
+        </div>
+        </app-card1>
+    </ul>
+<!-- </div> -->
+  </div>
+

@@ -10,6 +10,6 @@ import { environment } from 'src/environments/environment';
 export class Alunos2Service  extends crudService<Curso>{
 
   constructor(protected override  http: HttpClient) {
-    super(http, `${environment.API}alunos`);
+    super(http, `${environment.API}usuarios`);
    }
 }

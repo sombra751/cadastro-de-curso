@@ -1,7 +1,8 @@
-import { LoginService } from './../login/service/login.service';
+import { LoginService } from '../service/login.service';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, CanLoad, Route, Router, RouterStateSnapshot, UrlSegment, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, CanLoad, Route, Router, RouterStateSnapshot } from '@angular/router';
+import { AutenticacaoService } from '../service/autenticacao.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ export class AuthGuard implements CanActivate, CanLoad {
 
   constructor(
     private loginService:LoginService,
-    private router: Router
+    private router: Router,
+    private authService: AutenticacaoService
     ) { }
 
   canActivate(
@@ -22,7 +24,7 @@ export class AuthGuard implements CanActivate, CanLoad {
   }
 
 private verificarAcesso() {
-  if(this.loginService.usuarioEstaAutenticado()) {
+  if(this.authService.usuarioEstaAutenticado()) {
     return true
   }
   this.router.navigate(['/login']);
