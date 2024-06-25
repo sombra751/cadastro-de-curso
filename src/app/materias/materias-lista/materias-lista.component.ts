@@ -59,7 +59,7 @@ export class MateriasListaComponent implements OnInit {
   }
   handleError() {
     this.alertService.showAlertDanger(
-      ' Erro ao carregar cursos. Tente novamente mais tarde.'
+      ' Erro ao carregar matérias. Tente novamente mais tarde.'
     );
   }
 
@@ -67,7 +67,7 @@ export class MateriasListaComponent implements OnInit {
     this.router.navigate(['editar', id], { relativeTo: this.route });
   }
 
-  onDelete(curso: any): void {
+  onDelete(materia  : any): void {
     const result$ = this.alertService.showConfirm(
       'Confirmação',
       'Tem certeza que deseja excluir este item?',
@@ -79,16 +79,16 @@ export class MateriasListaComponent implements OnInit {
       .pipe(
         take(1),
         switchMap((result) =>
-          result ? this.materiasService.remove(curso.id) : EMPTY
+          result ? this.materiasService.remove(materia.id) : EMPTY
         )
       )
       .subscribe(
         () => {
-          this.alertService.showAlertSuccess('O curso foi removido')
+          this.alertService.showAlertSuccess('O matéria   foi removido')
           this.onRefresh();
         },
         (error: any) => {
-          this.alertService.showAlertDanger('Erro ao remover curso');
+          this.alertService.showAlertDanger('Erro ao remover matéria');
         }
       );
   }
@@ -101,7 +101,7 @@ export class MateriasListaComponent implements OnInit {
         this.onRefresh(), this.onDeclineDelete();
       },
       (error) => {
-        this.alertService.showAlertDanger('erro ao remover curso'),
+        this.alertService.showAlertDanger('erro ao remover matéria'),
           this.onDeclineDelete();
       }
     );

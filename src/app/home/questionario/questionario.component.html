@@ -1,0 +1,47 @@
+<h1 class="title-primary">Questionario</h1>
+<div class="questionario-container" >
+    <div class="questionario-content" *ngIf="questoes && questoes.length > 0">
+        <h4 class="index-perguntas">Pergunta {{perguntaAtual + 1}} de {{questoes.length}}</h4>
+        <h3 class="question__title">{{ questoes[perguntaAtual]?.pergunta }}</h3>
+        <ul class="alternativa-list">
+            <li class="alternativa__list-item" *ngFor="let alternativa of questoes[perguntaAtual]?.Alternativas">
+                <label class="alternativa__label">
+                    <input class="alternativa__input" type="radio" name="alternativa" [(ngModel)]="alternativaSelecionada" [value]="alternativa">
+                    {{ alternativa.texto }}
+                </label>
+            </li>
+        </ul>
+        <div class="alternativa__action">
+            <button mat-raised-button color="primary" (click)="responderQuestao()">Responder Questão</button>
+            <button mat-button (click)="cancel()">Cancelar</button>
+        </div>
+    </div>
+  </div>
+  <!-- atividades.component.html -->
+
+<!-- atividades.component.html -->
+
+<!-- <div class="questionario-container">
+    <div *ngIf="atividades && atividades.length > 0">
+      <div *ngFor="let atividade of atividades">
+        <h3>{{ atividade.pergunta }}</h3>
+        <ul class="alternativa-list">
+          <li class="alternativa__list-item"  *ngFor="let alternativa of atividade.Alternativas">
+            <label class="alternativa__label">
+              <input  class="alternativa__input" type="radio" name="pergunta{{ atividade.id }}" value="{{ alternativa.id }}" [(ngModel)]="alternativaSelecionada">
+              {{ alternativa.texto }}
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div *ngIf="!atividades || atividades.length === 0">
+        <p>Nenhuma pergunta disponível.</p>
+    </div>
+    <div class="alternativa__action">
+        <button mat-raised-button color="primary" (click)="responderQuestao()">Responder</button>
+        <button mat-button (click)="cancel()">Cancelar</button>
+    </div>
+  </div>
+   -->

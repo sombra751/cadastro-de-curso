@@ -1,0 +1,148 @@
+<div class="profile-content">
+
+    <div class="background-img">
+        <img src="/assets/images1/background-profile.jpg" alt="">
+    </div>
+
+    <div class="card card-body  ">
+        <div class="">
+            <div class="row mb-4">
+                <div class="col-auto avatar_photo">
+                    <div>
+                        <img src="/assets/images1/profile.jpg" alt="">
+                    </div>
+                </div>
+                <div class="avatar_information col-auto">
+                    <p class="mb-2 nome">{{usuario.nome}}</p>
+                    <p class="mb-0 cargo">{{roles.nome}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4 ">
+            <div class=" coll w-md-4">
+
+                <h3 class="title">configurações plataforma</h3>
+                <div class="mb-4 flex-column ">
+
+                    <h5 class="subtitle">Conta</h5>
+
+                    <mat-slide-toggle>Envie-me um e-mail quando alguém me seguir</mat-slide-toggle>
+                    <mat-slide-toggle>Envie-me um e-mail quando alguém responder à minha postagem</mat-slide-toggle>
+                    <mat-slide-toggle>Envie-me um e-mail quando alguém me mencionar</mat-slide-toggle>
+
+                </div>
+                <div class="mb-4 flex-column ">
+
+                    <h5 class="subtitle">Aplicação</h5>
+                    <mat-slide-toggle>Novos lançamentos e cursos</mat-slide-toggle>
+                    <mat-slide-toggle>Atualizações mensais de cursos</mat-slide-toggle>
+                </div>
+                <hr class="vertical dark">
+            </div>
+            <div class="coll w-md-4">
+                <div>
+                    <div class="d-flex">
+                        <div class="mr ">
+                            <h3 class="title mr">Informações do Usuário</h3>
+                        </div>
+                        <i class="bi bi-pencil-square"></i>
+                    </div>
+                    <!-- <p>{{usuario.descricao}}</p>
+                        <br> -->
+                    <p><strong>E-mail: </strong>{{usuario.email}}</p>
+                    <p><strong>Telefone: </strong>{{usuario.telefone}}</p>
+                    <p><strong>Endereço </strong>{{usuario.rua}}, {{usuario.numero}}</p>
+                    <p><strong>Bairro: </strong>{{usuario.bairro}}</p>
+                    <p><strong>Cidade/estado: </strong>{{usuario.cidade}}, {{usuario.estado}}</p>
+                    <p><strong></strong></p>
+                </div>
+                <hr class="vertical dark">
+            </div>
+            <div class=" coll w-md-4 w-col-12">
+
+                <h3 class="title">Amigos</h3>
+
+                <ul>
+                    <li class="d-flex alig align-items-center list-items mb-2">
+                        <div class="col-auto avatar_amigo">
+                            <div>
+                                <img src="/assets/images1/profile.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start flex-column justify-content-center ">
+                            <h4 class="mb-0 text-sm title">Silas</h4>
+                            <p class="mb-0 text-xs">Hi! I need more information..</p>
+                        </div>
+                        <div class="ms-auto w-md-auto ">
+                            <a class="btn btn-link" href="">siga</a>
+                        </div>
+                    </li>
+                    <li class="d-flex alig align-items-center list-items mb-2">
+                        <div class="col-auto avatar_amigo">
+                            <div>
+                                <img src="/assets/images1/profile.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start flex-column justify-content-center ">
+                            <h4 class="mb-0 text-sm title">Igor</h4>
+                            <p class="mb-0 text-xs">Hi! I need more information..</p>
+                        </div>
+                        <div class="ms-auto w-md-auto ">
+                            <a class="btn btn-link" href="">siga</a>
+                        </div>
+                    </li>
+                    <li class="d-flex alig align-items-center list-items mb-2">
+                        <div class="col-auto avatar_amigo">
+                            <div>
+                                <img src="/assets/images1/profile.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start flex-column justify-content-center ">
+                            <h4 class="mb-0 text-sm title">Antonela</h4>
+                            <p class="mb-0 text-xs">Hi! I need more information..</p>
+                        </div>
+                        <div class="ms-auto w-md-auto ">
+                            <a class="btn btn-link" href="">siga</a>
+                        </div>
+                    </li>
+                    <li class="d-flex alig align-items-center list-items mb-2">
+                        <div class="col-auto avatar_amigo">
+                            <div>
+                                <img src="/assets/images1/profile.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start flex-column justify-content-center ">
+                            <h4 class="mb-0 text-sm title">Sophie B.</h4>
+                            <p class="mb-0 text-xs">Hi! I need more information..</p>
+                        </div>
+                        <div class="ms-auto w-md-auto ">
+                            <a class="btn btn-link" href="">siga</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <br>
+        <div class="row ">
+            <div class="courses">
+                    <div class="w-col-3">
+                        <div class="course_image mx-3"><img src="/assets/images1//photoCursoDefault.jpg" alt=""></div>
+                        <div class="course_body">
+                            <p class="text-sm">curso {{cursos.id}}</p>
+                            <a (click)="onView(cursos.id)">
+                                <h1 class="mb-0 title">{{cursos.nome}}</h1>
+                            </a>
+                            <p class="mb-4 text-sm">{{cursos.descricao}}</p>
+                            <div>
+                                <button class="overview" (click)="onView(cursos.id)">
+                                    Saiba mais
+                                    <i class="bi bi-arrow-right-short"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

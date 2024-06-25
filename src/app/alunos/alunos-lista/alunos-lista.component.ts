@@ -6,6 +6,7 @@ import { AlertModalService } from 'src/app/shared/alert-modal.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { AlunosService } from '../service/alunos.service';
 
 @Component({
   selector: 'app-alunos-lista',
@@ -17,7 +18,7 @@ export class AlunosListaComponent implements OnInit {
   AlunoSelecionado!: Aluno;
   error$ = new Subject<boolean>();
 
-  displayedColumns = ['id', 'name', 'cursos', 'acoes'];
+  displayedColumns = [ 'id','nome', 'acoes'];
   dataSource!: MatTableDataSource<Aluno>;
 
 
@@ -25,6 +26,7 @@ export class AlunosListaComponent implements OnInit {
 
   constructor(
     private alunosService: Alunos2Service, 
+    private alunosService1: AlunosService, 
     private alertService: AlertModalService, 
     private router: Router,
     private route: ActivatedRoute
@@ -46,8 +48,8 @@ export class AlunosListaComponent implements OnInit {
       })
     );
 
-    this.alunosService
-      .list()
+    this.alunosService1
+      .getEstudante()
       .pipe(catchError((error) => EMPTY))
       .subscribe(
         (dados) => {
@@ -60,7 +62,7 @@ export class AlunosListaComponent implements OnInit {
   }
   handleError() {
     this.alertService.showAlertDanger(
-      ' Erro ao carregar cursos. Tente novamente mais tarde.'
+      ' Erro ao carregar alunos. Tente novamente mais tarde.'
     );
   }
 
@@ -85,11 +87,11 @@ export class AlunosListaComponent implements OnInit {
       )
       .subscribe(
         () => {
-          this.alertService.showAlertSuccess('O curso foi removido')
+          this.alertService.showAlertSuccess('O aluno foi removido')
           this.onRefresh();
         },
         (error: any) => {
-          this.alertService.showAlertDanger('Erro ao remover curso');
+          this.alertService.showAlertDanger('Erro ao remover aluno ');
         }
       );
   }
@@ -102,7 +104,7 @@ export class AlunosListaComponent implements OnInit {
         this.onRefresh(), this.onDeclineDelete();
       },
       (error) => {
-        this.alertService.showAlertDanger('erro ao remover curso'),
+        this.alertService.showAlertDanger('erro ao remover aluno'),
           this.onDeclineDelete();
       }
     );

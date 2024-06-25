@@ -2,14 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, delay, take, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Aluno } from '../alunos';
+import { Aluno, Testes } from '../alunos';
 import { Curso } from 'src/app/cursos/cursos';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AlunosService {
-  private readonly API = `${environment.API}alunos`;
+  private readonly API = `${environment.API}usuarios`;
 
   constructor(private http: HttpClient) { }
   
@@ -17,6 +17,20 @@ export class AlunosService {
     return this.http.get<Curso[]>(`${environment.API}cursos`);
   }
 
+  postRoles(usuarios: any) {
+    return this.http.post(`http://localhost:3600/usuarios`, usuarios).pipe(take(1))
+  }
+  getRoles(): Observable<Testes[]> {
+    return this.http.get<Testes[]>(`http://localhost:3600/role`);
+  }
+
+  getEstudante() {
+    return this.http.get<Aluno[]>(`http://localhost:3600/usuarios-estudante`)
+   .pipe(
+    delay(2000),
+    tap(console.log)
+   )
+  }
   
   list() {
     return this.http.get<Aluno[]>(this.API)

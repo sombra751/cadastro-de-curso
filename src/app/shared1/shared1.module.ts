@@ -21,6 +21,12 @@ import { IndexToLetterPipe } from './pipes/index-to-letter.pipe';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { FormsModule } from '@angular/forms';
+import {MatListModule} from '@angular/material/list';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatCardModule} from '@angular/material/card';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
 
 @NgModule({
   declarations: [
@@ -51,6 +57,11 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatChipsModule,
     MatCheckboxModule,
     MatRadioModule,
+    FormsModule,
+    MatListModule,
+    MatTabsModule,
+    MatCardModule,
+    MatSlideToggleModule
   ], 
   exports: [
     Card1Component,
@@ -76,6 +87,11 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatChipsModule,
     MatCheckboxModule,
     MatRadioModule,
+    FormsModule,
+    MatListModule,
+    MatTabsModule,
+    MatCardModule,
+    MatSlideToggleModule
   ]
 })
 export class Shared1Module { }

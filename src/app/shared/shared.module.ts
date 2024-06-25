@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { CardComponent } from './card/card.component'; // Importe o FormsModule
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
 @NgModule({
@@ -25,6 +26,8 @@ import { CardComponent } from './card/card.component'; // Importe o FormsModule
     ReactiveFormsModule,
     BrowserModule,
     FormsModule,
+    MatSlideToggleModule
+
     
   ],
   declarations: [
@@ -37,7 +40,8 @@ import { CardComponent } from './card/card.component'; // Importe o FormsModule
   exports: [
     AlertModalComponent,
     CarrosselComponent, 
-    CardComponent
+    CardComponent,
+    MatSlideToggleModule
 
   ]
 })

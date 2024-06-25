@@ -1,0 +1,93 @@
+/* Estilizando a tabela */
+table {
+    font-family: Arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+
+
+    background-color: #fff;
+}
+
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+}
+
+table {
+
+    td {
+        margin-bottom: 20px solid black;
+    }
+}
+
+/* Estilizando as linhas alternadas */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Adicionando um efeito hover nas linhas */
+
+
+/* Estilizando os links dentro da tabela */
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+.example-small-box,
+.example-large-box {
+    margin: 16px;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+
+.example-large-box {
+    height: 300px;
+    width: 90%;
+}
+
+
+.materias {
+    mat-list-item {
+        border-bottom: 1px solid #dddddd;
+
+        &:hover {
+            background-color: #DDDDDD54;
+        }
+
+    }
+}
+
+a {
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+// .list-icons {
+//     mat-list {
+// mat-list-item {
+
+//     &:nth-child(1) {
+        
+//             color: green;
+//         i:n
+//     }
+// }
+//     }
+
+// }
+
+
+mat-accordion {
+    padding: 1px;
+}

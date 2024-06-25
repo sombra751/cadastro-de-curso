@@ -11,11 +11,11 @@
             <a class="sidenav-nav-link" [matMenuTriggerFor]="menu">
                 <i class="sidenav-link-icon bi bi-person-fill"></i>
                 <div *ngFor="let user of users">
-                <span class="sidenav-link-text" *ngIf="collapsed">Olá, {{user.username}}!</span>
+                <span class="sidenav-link-text" *ngIf="collapsed">Olá, {{usuarioAual.nome}}!</span>
                 </div>
             </a>
             <mat-menu #menu="matMenu">
-                <button mat-menu-item>Meu perfil</button>
+                <button mat-menu-item routerLink="/perfil" routerLinkActive="active" >Meu perfil</button>
                 <button mat-menu-item (click)="logout()">Sair</button>
             </mat-menu>
         </li>
@@ -26,41 +26,40 @@
             </a>
         </li>
         <li class="sidenav-nav-item">
+            <a class="sidenav-nav-link" routerLink="/aluno" routerLinkActive="active">
+                <i class="sidenav-link-icon bi bi-house-door-fill"></i>
+                <span class="sidenav-link-text" *ngIf="collapsed">Área do aluno</span>
+            </a>
+        </li>
+        <li class="sidenav-nav-item" *ngIf="temPermissao(['acd71245-1591-45cf-abc8-c16a623d9503'])">
+            <a class="sidenav-nav-link " routerLink="/docentes" routerLinkActive="active">
+                <i class="sidenav-link-icon bi bi-person-workspace"></i>
+                <span class="sidenav-link-text" *ngIf="collapsed">Docentes</span>
+            </a>
+        </li>
+        <li class="sidenav-nav-item" *ngIf="temPermissao(['acd71245-1591-45cf-abc8-c16a623d9503'])">
             <a class="sidenav-nav-link " routerLink="/cursos" routerLinkActive="active">
                 <i class="sidenav-link-icon bi bi-mortarboard"></i>
                 <span class="sidenav-link-text" *ngIf="collapsed">Cursos</span>
             </a>
         </li>
-        <li class="sidenav-nav-item">
+        <li class="sidenav-nav-item" *ngIf="temPermissao(['acd71245-1591-45cf-abc8-c16a623d9503'])">
             <a class="sidenav-nav-link " routerLink="/materias" routerLinkActive="active">
                 <i class="sidenav-link-icon bi bi-journal-text"></i>
                 <span class="sidenav-link-text" *ngIf="collapsed">Materias</span>
             </a>
         </li>
-        <li class="sidenav-nav-item">
+        <li class="sidenav-nav-item" *ngIf="temPermissao(['acd71245-1591-45cf-abc8-c16a623d9503'])">
+            <a class="sidenav-nav-link " routerLink="/aulas" routerLinkActive="active">
+                <i class="sidenav-link-icon bi bi-book-half"></i>
+                <span class="sidenav-link-text" *ngIf="collapsed">Aulas</span>
+            </a>
+        </li>
+        <li class="sidenav-nav-item" *ngIf="temPermissao(['acd71245-1591-45cf-abc8-c16a623d9503'])">
             <a class="sidenav-nav-link " routerLink="/alunos" routerLinkActive="active">
                 <i class="sidenav-link-icon bi bi-person-add"></i>
                 <span class="sidenav-link-text" *ngIf="collapsed">Alunos</span>
             </a>
         </li>
-        <!-- <li class="sidenav-nav-item">
-            <a class="sidenav-nav-link" routerLink="/rxjs-poc" routerLinkActive="active">
-                <i class="sidenav-link-icon bi bi-pencil-square"></i>
-                <span class="sidenav-link-text" *ngIf="collapsed">RXjS-POC</span>
-            </a>
-        </li>
-        <li class="sidenav-nav-item">
-            <a class="sidenav-nav-link" routerLink="/upload" routerLinkActive="active">
-                <i class="sidenav-link-icon bi bi-file-zip"></i>
-                <span class="sidenav-link-text" *ngIf="collapsed">Arquivo</span>
-            </a>
-        </li>
-        <li class="sidenav-nav-item">
-            <a class="sidenav-nav-link" routerLink="/busca-reativa" routerLinkActive="active">
-                <i class="sidenav-link-icon bi bi-search"></i>
-                <span class="sidenav-link-text" *ngIf="collapsed">Pesquisa Reativa</span>
-            </a>
-        </li> -->
-        
     </ul>
 </div>

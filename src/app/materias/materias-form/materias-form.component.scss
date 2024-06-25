@@ -4,3 +4,23 @@ table {
         padding: 10px;
     }
 }
+
+mat-accordion {
+    padding: 10px;
+}
+
+.bi-plus-lg,  .bi-trash-fill{
+    font-size: 1.1rem;
+    font-weight: bolder;
+}
+
+
+mat-form-field {
+    width: 100%;
+}
+
+.center_center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

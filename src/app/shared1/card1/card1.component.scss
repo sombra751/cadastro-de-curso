@@ -93,3 +93,15 @@ i {
 //     }
 // }
 
+
+.card__title-modifier {
+    text-transform: capitalize;
+    font-weight: 600;
+    font-family: sans-serif;
+    color: black;
+}
+
+
+.card__icon-modifier {
+    background: linear-gradient(195deg,#42424a,#191919);
+}

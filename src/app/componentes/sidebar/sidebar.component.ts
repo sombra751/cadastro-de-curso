@@ -1,7 +1,10 @@
+import { AuthGuard } from '../../login/guards/auth.guard';
 import { transition, trigger, style, animate, keyframes } from '@angular/animations';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { LoginService } from '../../login/service/login.service';
 import { environment } from 'src/environments/environment';
+import { AutenticacaoService } from 'src/app/login/service/autenticacao.service';
+import { UserService } from 'src/app/login/service/user.service';
 
 
 interface sideNavToogle {
@@ -29,10 +32,10 @@ interface sideNavToogle {
     ]),
     trigger('rotate', [
       transition(':enter', [
-        animate('1000ms', 
+        animate('1000ms',
           keyframes([
-            style({transform: 'rotate(0deg)', offset: '0'}),
-            style({transform: 'rotate(2turn)', offset: '1'})
+            style({ transform: 'rotate(0deg)', offset: '0' }),
+            style({ transform: 'rotate(2turn)', offset: '1' })
           ])
         )
       ])
@@ -51,16 +54,25 @@ export class SidebarComponent implements OnInit {
 
   allMoments: any[] = []
   moments: any[] = []
-baseApiUrl = environment.API
+  baseApiUrl = environment.API
+  usuarioAual!: any
 
-  constructor(private loginService: LoginService ) {
-    
-   }
+  constructor(
+    private loginService: LoginService, 
+    private authService: AutenticacaoService, 
+    private userService: UserService,) {
+
+  }
 
   ngOnInit(): void {
-    this.loginService.mostrarMenuEmitter.subscribe(
+    
+    this.authService.mostrarMenuEmitter.subscribe(
       mostrar => this.mostrarMenu = mostrar
-    )
+      )
+      this.usuarioAual = this.authService.usuario 
+      console.log('usuario sidebar',this.usuarioAual )
+      
+
     // this.loginService.getUsers().subscribe((items) => {
     //   const data = items.data
 
@@ -69,12 +81,15 @@ baseApiUrl = environment.API
     //   })
     // })
 
-    this.loginService.getUsers().subscribe(
-      users => this.users = users,
-      error => console.error('Erro ao obter usuários', error)
-    );
+
   }
 
+  
+
+  temPermissao(roles: string[]): boolean {
+    return this.authService.temPermissao(roles);
+  }
+  
   toogleCollapse(): void {
     this.collapsed = !this.collapsed
     this.onToggleSideNav.emit({ collapsed: this.collapsed, screenWidth: this.screenWidth })

@@ -1,13 +1,15 @@
 import { MateriasService } from './../service/materias.service';
 import { Materia } from './../materias';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Curso } from 'src/app/cursos/cursos';
 import { Materias2Service } from '../service/materias2.service';
 import { AlertModalService } from 'src/app/shared/alert-modal.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { MatAccordion } from '@angular/material/expansion';
+import { CursosService } from 'src/app/cursos/service/cursos.service';
 
 
 @Component({
@@ -21,7 +23,9 @@ export class MateriasFormComponent implements OnInit {
   title: string = 'Adição de materia'
   cursos: Curso[] = [];
 
- 
+  @ViewChild(MatAccordion) accordion!: MatAccordion;
+
+
 
   constructor(private fb: FormBuilder,
     private materiaService1: MateriasService,
@@ -30,13 +34,16 @@ export class MateriasFormComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private location: Location,
+    private cursoService: CursosService
   ) { }
   ngOnInit(): void {
     if (this.router.url.includes('editar')) {
       this.title = 'Edição de matéria'
-    } 
+    }
 
-  const materia = this.route.snapshot.data['materia'];
+    const materia = this.route.snapshot.data['materia'];
+
+    // Assuming that you have the necessary imports and declarations
 
     this.form = this.fb.group({
       id: [materia.id],
@@ -48,23 +55,32 @@ export class MateriasFormComponent implements OnInit {
           // Validators.maxLength(35),
         ],
       ],
-      youtubeUrl:[materia.youtubeUrl],
-      curso: [materia.curso,[Validators.required]],
+      curso_id: [materia.curso_id, [Validators.required]],
     });
 
-    this.materiaService1.getTodosCursos().subscribe((cursos) => {
-      this.cursos = cursos;
-    });
 
-    
+    this.materiaService1.getTodosCursos().subscribe(
+      (cursos) => {
+        console.log('Cursos recebidos:', cursos);
+        this.cursos = cursos;
+      },
+      (error) => {
+        console.error('Erro ao obter cursos:', error);
+      }
+    );
+
   }
+
+
+
+
+
 
   hasError(field: string) {
     return this.form.get(field)?.errors;
   }
 
   onSubmit(): void {
-
     if (this.form.valid) {
       this.submitted = true;
       let msgSuccess = 'Matéria criada com sucesso!';
@@ -84,12 +100,15 @@ export class MateriasFormComponent implements OnInit {
           this.alertService.showAlertSuccess(msgError)
         }
       );
-    }
+
+    } 
   }
 
-  onCancel() {
+  onCancel(): void {
     this.submitted = false;
     this.form.reset();
     this.router.navigate(['materias']);
   }
+
+
 }
